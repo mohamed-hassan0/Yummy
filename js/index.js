@@ -143,6 +143,7 @@ function displayMealDetails(details) {
   $("#categoriesContainer").addClass("d-none");
   $("#areaContainer").addClass("d-none");
   $("#ingredientContainer").addClass("d-none");
+  $("#detailsContainer").removeClass("d-none");
 }
 // ============================================= search =================================
 $("#search").click(() => {
@@ -166,9 +167,9 @@ async function searchByName(name) {
 }
 
 async function searchByFirstLetter(letter) {
-    if (letter === "") {
-        letter = "a"
-    }
+  if (letter === "") {
+    letter = "a";
+  }
   $(".inner-loading-screen").fadeIn(300);
   const response = await fetch(
     `https://www.themealdb.com/api/json/v1/1/search.php?f=${letter}`
@@ -276,7 +277,7 @@ $("#area").click(() => {
   $("#categoriesContainer").addClass("d-none");
   $("#ingredientContainer").addClass("d-none");
   $("#contactContainer").addClass("d-none");
-  $("#detailsContainer .row").addClass("d-none")
+  $("#detailsContainer .row").addClass("d-none");
   $("#areaContainer").removeClass("d-none");
   getArea();
 });
@@ -337,7 +338,7 @@ $("#ingredients").click(() => {
   $(".meals").addClass("d-none");
   $("#searchContianer").addClass("d-none");
   $("#categoriesContainer").addClass("d-none");
-  $("#detailsContainer").addClass("d-none")
+  $("#detailsContainer").addClass("d-none");
   $("#areaContainer").addClass("d-none");
   $("#ingredientContainer").removeClass("d-none");
   $("#contactContainer").addClass("d-none");
@@ -403,15 +404,16 @@ function displayByIngrediant(mealsArr) {
 }
 // ========================================================== contact ==========================================================
 $("#contact").click(() => {
-    closeNav();
-    $(".meals").addClass("d-none");
-    $("#searchContianer").addClass("d-none");
-    $("#categoriesContainer").addClass("d-none");
-    $("#areaContainer").addClass("d-none");
-    $("#ingredientContainer").addClass("d-none");
-    $("#contactContainer").removeClass("d-none");
-    showContacts();
-})
+  closeNav();
+  $(".meals").addClass("d-none");
+  $("#searchContianer").addClass("d-none");
+  $("#categoriesContainer").addClass("d-none");
+  $("#areaContainer").addClass("d-none");
+  $("#ingredientContainer").addClass("d-none");
+  $("#detailsContainer").addClass("d-none");
+  $("#contactContainer").removeClass("d-none");
+  showContacts();
+});
 
 function showContacts() {
   submitBtn = document.getElementById("submitBtn");
@@ -550,9 +552,7 @@ function phoneValidation() {
 }
 
 function ageValidation() {
-  return /^([1-9]|[1-9][0-9])$/.test(
-    document.getElementById("ageInput").value
-  );
+  return /^([1-9]|[1-9][0-9])$/.test(document.getElementById("ageInput").value);
 }
 
 function passwordValidation() {
