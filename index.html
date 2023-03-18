@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/all.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="shortcut icon" href="./imgs/logo.png" type="image/x-icon" />
+    <title>Yummy</title>
+  </head>
+  <body>
+    <div class="loading-screen position-fixed min-vh-100 w-100 z-3">
+      <div
+        class="position-relative position-absolute top-50 start-50 translate-middle"
+      >
+        <i class="fa fa-spinner fa-spin fa-5x text-white"></i>
+      </div>
+    </div>
+    <div class="side-nav-bar min-vh-100 position-fixed top-0 d-flex z-3">
+      <div
+        class="nav-tab bg-black text-white d-flex flex-column justify-content-between p-3"
+      >
+        <ul class="list-unstyled pt-3 ps-2 overflow-hidden">
+          <li class="py-1 fs-5">
+            <a href="#" class="text-decoration-none text-white" id="search"
+              >Search</a
+            >
+          </li>
+          <li class="py-1 fs-5">
+            <a href="#" class="text-decoration-none text-white" id="categories"
+              >Categories</a
+            >
+          </li>
+          <li class="py-1 fs-5">
+            <a href="#" class="text-decoration-none text-white" id="area"
+              >Area</a
+            >
+          </li>
+          <li class="py-1 fs-5">
+            <a href="#" class="text-decoration-none text-white" id="ingredients"
+              >Ingredients</a
+            >
+          </li>
+          <li class="py-1 fs-5">
+            <a href="#" class="text-decoration-none text-white" id="contact"
+              >Contact us</a
+            >
+          </li>
+        </ul>
+        <div class="bottom-info">
+          <div class="social-links d-flex">
+            <i class="fa-brands fa-facebook p-1"></i>
+            <i class="fa-brands fa-twitter p-1"></i>
+            <i class="fa-solid fa-globe p-1"></i>
+          </div>
+          <p class="fs-5 p-1">Copyright Â© 2019 All RightsReserved.</p>
+        </div>
+      </div>
+      <div
+        class="nav-header d-flex flex-column justify-content-between min-vh-100 p-1 bg-white align-items-center"
+      >
+        <div class="iamge w-100 pt-2">
+          <img src="./imgs/logo.png" alt="log" class="w-100 pt-2" />
+        </div>
+        <div class="hum-icon">
+          <i class="fa-solid fa-x fs-1 d-none x-icon"></i>
+          <i class="fa-solid fa-bars fs-1 bars-icon"></i>
+        </div>
+        <div class="links d-flex flex-column fs-6 pb-4">
+          <i class="fa-solid fa-globe p-1"></i>
+          <i class="fa-solid fa-share-nodes p-1"></i>
+        </div>
+      </div>
+    </div>
+    <div class="meals min-vh-100 position-relative py-5">
+      <div class="container">
+        <div class="row g-4"></div>
+      </div>
+    </div>
+    <div class="container py-5" id="detailsContainer">
+      <div class="inner-loading-screen min-vh-100 w-100" style="display: none">
+        <div
+          class="position-relative position-absolute top-50 start-50 translate-middle"
+        >
+          <i class="fa fa-spinner fa-spin fa-5x text-white"></i>
+        </div>
+      </div>
+      <div class="row text-white"></div>
+    </div>
+    <div class="container d-none" id="searchContianer">
+      <div class="inner-loading-screen min-vh-100 w-100" style="display: none">
+        <div
+          class="position-relative position-absolute top-50 start-50 translate-middle"
+        >
+          <i class="fa fa-spinner fa-spin fa-5x text-white"></i>
+        </div>
+      </div>
+      <div class="row g-2 my-3">
+        <div class="col-md-6 d-flex justify-content-end">
+          <input
+            class="by-name w-50 p-2 m-1 rounded-2 form-control"
+            onkeyup="searchByName(this.value)"
+            type="search"
+            placeholder="Search By Name"
+          />
+        </div>
+        <div class="col-md-6">
+          <input
+            class="by-letter w-50 m-1 form-control p-2 rounded-2"
+            onkeyup="searchByFirstLetter(this.value)"
+            type="search"
+            placeholder="Search By First Letter"
+            maxlength="1"
+          />
+        </div>
+      </div>
+      <div class="row d-meals my-4 g-4"></div>
+    </div>
+    <div class="container d-none" id="categoriesContainer">
+      <div class="inner-loading-screen min-vh-100 w-100" style="display: none">
+        <div
+          class="position-relative position-absolute top-50 start-50 translate-middle"
+        >
+          <i class="fa fa-spinner fa-spin fa-5x text-white"></i>
+        </div>
+      </div>
+      <div class="row g-5 my-4 categories"></div>
+    </div>
+    <div class="container d-none" id="areaContainer">
+      <div class="inner-loading-screen min-vh-100 w-100" style="display: none">
+        <div
+          class="position-relative position-absolute top-50 start-50 translate-middle"
+        >
+          <i class="fa fa-spinner fa-spin fa-5x text-white"></i>
+        </div>
+      </div>
+      <div class="row g-4 Areas my-4"></div>
+    </div>
+    <div class="container" id="ingredientContainer">
+      <div class="inner-loading-screen min-vh-100 w-100" style="display: none">
+        <div
+          class="position-relative position-absolute top-50 start-50 translate-middle"
+        >
+          <i class="fa fa-spinner fa-spin fa-5x text-white"></i>
+        </div>
+      </div>
+      <div class="row g-4 my-4"></div>
+    </div>
+    <div class="container d-none" id="contactContainer">
+      <div
+        class="contact min-vh-100 d-flex justify-content-center align-items-center"
+      >
+        <div class="container w-75 text-center">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <input
+                id="nameInput"
+                onkeyup="inputsValidation()"
+                type="text"
+                class="form-control"
+                placeholder="Enter Your Name"
+              />
+              <div id="nameAlert" class="alert alert-danger w-100 mt-2 d-none">
+                Special characters and numbers not allowed
+              </div>
+            </div>
+            <div class="col-md-6">
+              <input
+                id="emailInput"
+                onkeyup="inputsValidation()"
+                type="email"
+                class="form-control"
+                placeholder="Enter Your Email"
+              />
+              <div id="emailAlert" class="alert alert-danger w-100 mt-2 d-none">
+                Email not valid *exemple@yyy.zzz
+              </div>
+            </div>
+            <div class="col-md-6">
+              <input
+                id="phoneInput"
+                onkeyup="inputsValidation()"
+                type="text"
+                class="form-control"
+                placeholder="Enter Your Phone"
+              />
+              <div id="phoneAlert" class="alert alert-danger w-100 mt-2 d-none">
+                Enter valid Phone Number
+              </div>
+            </div>
+            <div class="col-md-6">
+              <input
+                id="ageInput"
+                onkeyup="inputsValidation()"
+                type="number"
+                class="form-control"
+                placeholder="Enter Your Age"
+              />
+              <div id="ageAlert" class="alert alert-danger w-100 mt-2 d-none">
+                Enter valid age
+              </div>
+            </div>
+            <div class="col-md-6">
+              <input
+                id="passwordInput"
+                onkeyup="inputsValidation()"
+                type="password"
+                class="form-control"
+                placeholder="Enter Your Password"
+              />
+              <div
+                id="passwordAlert"
+                class="alert alert-danger w-100 mt-2 d-none"
+              >
+                Enter valid password *Minimum eight characters, at least one
+                letter and one number:*
+              </div>
+            </div>
+            <div class="col-md-6">
+              <input
+                id="repasswordInput"
+                onkeyup="inputsValidation()"
+                type="password"
+                class="form-control"
+                placeholder="Repassword"
+              />
+              <div
+                id="repasswordAlert"
+                class="alert alert-danger w-100 mt-2 d-none"
+              >
+                Enter valid repassword
+              </div>
+            </div>
+          </div>
+          <button
+            id="submitBtn"
+            disabled
+            class="btn btn-outline-danger px-2 mt-3"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/jquery-3.6.4.min.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

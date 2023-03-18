@@ -1,0 +1,52 @@
+body {
+  background-color: #0d0d0d;
+}
+.loading-screen {
+  background-color: #0d0d0de7;
+}
+.inner-loading-screen {
+  background-color: #0d0d0de7;
+}
+.nav-tab {
+  background-color: #0d0d0d;
+}
+.side-nav-bar {
+  left: -300px;
+}
+.side-nav-bar .nav-header{
+    width: 60px;
+}
+.side-nav-bar .nav-tab {
+    width: 300px;
+}
+.side-nav-bar li {
+  position: relative;
+  top: 300px;
+}
+.meal-name {
+  background-color: #f9f6f6ca;
+  width: 100%;
+  transition: 0.5s;
+}
+.meals img {
+  min-width: 100%;
+}
+.meal {
+  outline: 10px solid transparent;
+  cursor: pointer;
+}
+.meal:hover .meal-name {
+  top: 0 !important;
+}
+.by-name {
+  background-color: #0d0d0d;
+  color: white !important;
+}
+.by-letter {
+  background-color: #0d0d0d;
+  color: white !important;
+}
+.by-name:focus,
+.by-letter:focus {
+  background-color: #0d0d0d;
+}
